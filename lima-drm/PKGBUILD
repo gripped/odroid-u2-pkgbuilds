@@ -1,0 +1,32 @@
+# Maintainer: gripped <forum.odroid.com>
+pkgname=lima-drm
+pkgver=1
+pkgrel=1
+pkgdesc="Lima driver for modified for drm"
+arch=('armv7h')
+url="https://github.com/tobiasjakobi/lima-drm"
+license=('GPL')
+groups=()
+depends=('libdrm' 'libx11' 'libxext' 'libxfixes' 'mali-odroid')
+makedepends=('git')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+source=('git+https://github.com/tobiasjakobi/lima-drm.git')
+
+md5sums=('SKIP') 
+build() {
+  cd "$srcdir/lima-drm"
+  sed -i 's:DIRS = limare tools wrap:DIRS = limare:g' Makefile
+  sed -i 's:DIRS = lib tests:DIRS = lib:g' limare/Makefile
+  make OS=gnu V=1
+}
+
+package() {
+  cd "$srcdir/lima-drm"
+  install -Dm755 "$srcdir/lima-drm/limare/lib/liblimare.so" "${pkgdir}/usr/lib/liblimare.so"
+  install -Dm644 "$srcdir/lima-drm/limare/lib/limare.h" "${pkgdir}/usr/include/limare.h"
+}

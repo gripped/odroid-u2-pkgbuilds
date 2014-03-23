@@ -1,0 +1,30 @@
+# Maintainer: gripped <forum.odroid.com>
+pkgname=ra-softfilter
+pkgver=1
+pkgrel=1
+pkgdesc="CPU-based image filters (mostly scalers), intended to be used with the RetroArch emulation frontend."
+arch=('armv7h')
+url="https://github.com/tobiasjakobi/ra-softfilter.git"
+license=('GPL')
+groups=()
+depends=('libdrm')
+makedepends=('git')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+source=('git+https://github.com/tobiasjakobi/ra-softfilter.git')
+
+md5sums=('SKIP') 
+build() {
+  cd "$srcdir/$pkgname"
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -d -m755 "${pkgdir}/usr/share/libretro/filters"
+  cp -av *.filter "${pkgdir}/usr/share/libretro/filters"
+}

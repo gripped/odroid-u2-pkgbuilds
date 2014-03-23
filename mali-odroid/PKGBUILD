@@ -1,0 +1,27 @@
+# Maintainer: gripped <forum.odroid.com>
+
+pkgname=mali-odroid
+pkgver=r1p1.r3p2.01rel3
+pkgrel=1
+pkgdesc="mali EGL libs and xorg video driver"
+arch=('armv7h')
+url=""
+license=('custom')
+depends=('')
+makedepends=()
+conflicts=()
+options=('!libtool')
+groups=()
+provides=('libump')
+source=('maliodroid.tar.xz'
+	'eglplatform.h')
+md5sums=('9133facaed7fc2bc5303c4e7278ba511'
+	 'a909dfb0a670b377b02b955419e97151')
+
+
+package() {
+  cd "${srcdir}"/
+  mv usr/include/EGL/eglplatform.h usr/include/EGL/eglplatform.h.orig
+  cp ../eglplatform.h usr/include/EGL/eglplatform.h
+  cp -av etc usr ${pkgdir}
+}

@@ -1,0 +1,45 @@
+# Maintainer:  prettyvanilla <prettyvanilla@posteo.at>
+# Contributor: almostalive   <almostalive2003 at gmail dot com>
+# Contributor: Themaister    <maister@archlinux.us>
+# Modifier:    gripped	     forum.odroid.com
+
+pkgname=retroarch-lima-odroidu
+pkgver=10024.30c2b29
+pkgrel=1
+pkgdesc="Reference frontend for the libretro API. Odroidu lima version"
+arch=('armv7h')
+url="https://github.com/libretro/RetroArch/blob/master/README-lima.md"
+license=('GPL')
+# optional build-time deps: 'openal', 'libxml2', 'nvidia-cg-toolkit', 'sdl_image'
+# see: 'retroarch --features' for more.
+depends=('lima-drm' 'alsa-lib')
+optdepends=('libretro-super-git: A collection of many libretro implementations.'
+	    'ra-softfilter: CPU-based image filters (mostly scalers), intended to be used with the RetroArch emulation frontend.')
+makedepends=('git')
+provides=('retroarch')
+conflicts=('retroarch' 'retroarch-git')
+_gitname=RetroArch-lima
+source=('git+https://github.com/tobiasjakobi/RetroArch-lima.git#branch=softfilter'
+	'20-retroarch.rules')
+md5sums=('SKIP'
+	  '4f1dcdf17095796271c39aad456aed07')
+
+pkgver() {
+  cd "${_gitname}"
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
+
+build() {
+  cd "${_gitname}"
+  ./configure --prefix=/usr --enable-udev --enable-threads --disable-ffmpeg --enable-gles --disable-kms \
+  --disable-vg --enable-alsa --disable-xvideo --disable-sdl --disable-sdl_image \
+  --disable-x11 --enable-fbo --enable-neon --enable-lima
+  make
+}
+
+package() {
+  cd "${_gitname}"
+  make install DESTDIR="${pkgdir}"
+  install -dm755 $pkgdir/lib/udev/rules.d
+  install "${srcdir}"/20-retroarch.rules $pkgdir/lib/udev/rules.d/
+}
