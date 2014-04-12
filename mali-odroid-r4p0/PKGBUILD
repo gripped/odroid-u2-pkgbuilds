@@ -1,0 +1,27 @@
+# Maintainer: gripped <forum.odroid.com>
+
+pkgname=mali-odroid-r4p0
+pkgver=1
+pkgrel=1
+pkgdesc="mali EGL libs and xorg video driver"
+arch=('armv7h')
+url=""
+license=('custom')
+depends=('')
+makedepends=()
+conflicts=()
+options=('!libtool')
+groups=()
+provides=('libump')
+conflicts=('mali-odroid')
+provides=('mali-odroid')
+source=('mali-odroid-r4p0.tar.xz'
+	'eglplatform.h')
+md5sums=('b83c5f2ca39c8b4f6464dfa569ebc07a'
+	 'a909dfb0a670b377b02b955419e97151')
+
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  cp -av etc usr ${pkgdir}
+}
