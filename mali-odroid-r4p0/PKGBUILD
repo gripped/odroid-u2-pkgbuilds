@@ -15,10 +15,8 @@ groups=()
 provides=('libump')
 conflicts=('mali-odroid')
 provides=('mali-odroid')
-source=('mali-odroid-r4p0.tar.xz'
-	'eglplatform.h')
-md5sums=('b83c5f2ca39c8b4f6464dfa569ebc07a'
-	 'a909dfb0a670b377b02b955419e97151')
+source=('mali-odroid-r4p0.tar.xz')
+md5sums=('b83c5f2ca39c8b4f6464dfa569ebc07a')
 
 
 package() {
