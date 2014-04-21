@@ -13,7 +13,7 @@ _gitname=picodrive
 source=("git+https://github.com/libretro/picodrive.git"
         "https://raw.github.com/libretro/libretro-super/master/dist/info/picodrive_libretro.info")
 md5sums=('SKIP'
-         '696610480a707ecc46a58fbc18e68579')
+         'SKIP')
 
 pkgver() {
   cd $_gitname

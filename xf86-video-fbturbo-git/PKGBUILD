@@ -2,14 +2,14 @@
 
 pkgname=xf86-video-fbturbo
 _gitname=xf86-video-fbturbo
-pkgver=135.d147e25
+pkgver=195.4c7313c
 pkgrel=1
 pkgdesc="X.org mali video driver"
 arch=('armv7h')
 url="https://github.com/ssvb/xf86-video-fbturbo"
 license=('MIT')
-depends=('libump')
-makedepends=('git' 'xorg-server-devel' 'X-ABI-VIDEODRV_VERSION=14')
+depends=('mali-odroid')
+makedepends=('git' 'xorg-server-devel')
 conflicts=('xorg-server<1.14.0' 'X-ABI-VIDEODRV_VERSION<14' 'X-ABI-VIDEODRV_VERSION>=15')
 options=('!libtool')
 groups=('xorg-drivers' 'xorg')
