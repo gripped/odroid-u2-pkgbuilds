@@ -2,7 +2,7 @@
 # Maintainer: AndyRTR <andyrtr@archlinux.org>
 # Maintainer: Jan de Groot <jgc@archlinux.org>
 
-pkgbase=xorg-server
+pkgbase=xorg-server-dsd
 pkgname=('xorg-server-dsd' 'xorg-server-xephyr' 'xorg-server-xdmx' 'xorg-server-xvfb' 'xorg-server-xnest' 'xorg-server-common' 'xorg-server-devel')
 pkgver=1.15.0
 pkgrel=5.1 # build first with 0.1 and then rebuild it after xf86-input-evdev rebuild
