@@ -1,5 +1,5 @@
-Alt-Odroid U2/3 - Arch Linux - Mali/xorg-armsoc
-===============================================
+Odroid U2/3 - Arch Linux - Mali/xorg-armsoc
+===========================================
 
 If you want to try the the latest Mali blob with dsd's xf86-video-armsoc as dicussed here :
 
