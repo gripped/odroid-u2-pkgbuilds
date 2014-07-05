@@ -1,7 +1,7 @@
 Odroid U2/3 - Arch Linux - Mali/xorg-armsoc
 ===========================================
 
-If you want to try the the latest Mali blob with dsd's xf86-video-armsoc as dicussed here :
+If you want to try the latest Mali blob with dsd's xf86-video-armsoc as dicussed here :
 
 http://forum.odroid.com/viewtopic.php?f=77&t=4456#p35809
 
