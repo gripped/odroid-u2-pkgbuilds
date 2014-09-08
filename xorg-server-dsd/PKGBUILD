@@ -4,9 +4,9 @@
 
 pkgbase=xorg-server
 pkgname=('xorg-server-dsd' 'xorg-server-xephyr' 'xorg-server-xdmx' 'xorg-server-xvfb' 'xorg-server-xnest' 'xorg-server-common' 'xorg-server-devel')
-pkgver=1.15.0
+pkgver=1.16.0
 pkgrel=5.1 # build first with 0.1 and then rebuild it after xf86-input-evdev rebuild
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv7h')
 license=('custom')
 url="http://xorg.freedesktop.org"
 makedepends=('pixman' 'libx11' 'mesa' 'mesa-libgl' 'xf86driproto' 'xcmiscproto' 'xtrans' 'bigreqsproto' 'randrproto' 
@@ -23,7 +23,7 @@ source=(${url}/releases/individual/xserver/${pkgbase}-${pkgver}.tar.bz2
         10-quirks.conf
         CVE-2013-6424.diff
 	dsd.patch)
-sha256sums=('613b2f2e7ee2a06d2f8e862c836dc70d319c52f1537749e027398f40086aabb8'
+sha256sums=('38330a03c5f7a38745a3f9816cf069db5b8844eebb358fd39dbabf61f32cd06b'
             '66e25f76a7496c429e0aff4b0670f168719bb0ceaeb88c6f2272f2bf3ed21162'
             'd027776fac1f7675b0a9ee817502290b1c45f9c09b0f0a6bb058c35f92361e84'
             'ff0156309470fc1d378fd2e104338020a884295e285972cc88e250e031cc35b9'
@@ -112,7 +112,7 @@ package_xorg-server-dsd() {
   backup=('etc/X11/xorg.conf.d/10-evdev.conf' 'etc/X11/xorg.conf.d/10-quirks.conf')
   # see xorg-server-*/hw/xfree86/common/xf86Module.h for ABI versions - we provide major numbers that drivers can depend on
   # and /usr/lib/pkgconfig/xorg-server.pc in xorg-server-devel pkg
-  provides=('X-ABI-VIDEODRV_VERSION=15' 'X-ABI-XINPUT_VERSION=20' 'X-ABI-EXTENSION_VERSION=8.0' 'x-server' 'xorg-server')
+  provides=('X-ABI-VIDEODRV_VERSION=18' 'X-ABI-XINPUT_VERSION=21' 'X-ABI-EXTENSION_VERSION=8.0' 'x-server' 'xorg-server')
   groups=('xorg')
   conflicts=('nvidia-utils<=331.20' 'xorg-server')
 
