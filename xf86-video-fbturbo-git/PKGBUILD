@@ -10,7 +10,7 @@ url="https://github.com/ssvb/xf86-video-fbturbo"
 license=('MIT')
 depends=('mali-odroid')
 makedepends=('git' 'xorg-server-devel')
-conflicts=('xorg-server<1.14.0' 'X-ABI-VIDEODRV_VERSION<14' 'X-ABI-VIDEODRV_VERSION>=15')
+conflicts=('xorg-server<1.14.0' 'X-ABI-VIDEODRV_VERSION<14' 'X-ABI-VIDEODRV_VERSION>=19')
 options=('!libtool')
 groups=('xorg-drivers' 'xorg')
 provides=('xf86-video-sunxifb')
