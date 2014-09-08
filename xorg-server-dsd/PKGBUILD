@@ -4,9 +4,9 @@
 
 pkgbase=xorg-server
 pkgname=('xorg-server-dsd' 'xorg-server-xephyr' 'xorg-server-xdmx' 'xorg-server-xvfb' 'xorg-server-xnest' 'xorg-server-common' 'xorg-server-devel')
-pkgver=1.15.0
+pkgver=1.16.0
 pkgrel=5.1 # build first with 0.1 and then rebuild it after xf86-input-evdev rebuild
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv7h')
 license=('custom')
 url="http://xorg.freedesktop.org"
 makedepends=('pixman' 'libx11' 'mesa' 'mesa-libgl' 'xf86driproto' 'xcmiscproto' 'xtrans' 'bigreqsproto' 'randrproto' 
